@@ -5,13 +5,16 @@ import './style.css';
 
 interface ICartItemProps {
   product: IProduct;
+  onAmountChange: (amount: number) => void;
 }
 
-const CartItem = ({ product }: ICartItemProps) => {
+const CartItem = ({ product, onAmountChange }: ICartItemProps) => {
+
+
   return (
     <div className="cart-item">
       <CartProduct name={product.name} price={product.price} />
-      <Amount value={product.amount} />
+      <Amount value={product.amount} onAmountChange={onAmountChange} />
     </div>
   )
 };
